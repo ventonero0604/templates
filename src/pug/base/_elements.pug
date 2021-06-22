@@ -1,0 +1,85 @@
+//- Image
+  @param {string} name
+mixin img( name )
+  - var size = getImageSize( name );
+  img( src= setImagePath( setImageExtension( name ) ), alt='', width= size[0], height= size[1] )&attributes( attributes )
+
+
+//- Jpg image
+  @param {string} name
+mixin jpg( name )
+  - var size = getImageSize( name );
+  img( src= setImagePath( name +'.jpg' ), alt='', width= size[0], height= size[1] )&attributes( attributes )
+
+
+//- Png image
+  @param {string} name
+mixin png( name )
+  - var size = getImageSize( name );
+  img( src= setImagePath( name +'.png' ), alt='', width= size[0], height= size[1] )&attributes( attributes )
+
+
+//- Loop without indexing mixin
+  @param {number} iterations - number of iterations
+mixin loop( iterations )
+  - for ( var i = 0; i < iterations; i++ )
+    block
+
+
+//- Parallax Section
+  @param {object} obj - parameters storage
+  @param {string} obj.img - image path
+  @param {string} obj.innerClass - content wrapper class
+mixin parallax( obj )
+  section.parallax-container( data-parallax-img= setImagePath( setImageExtension( obj.img ) ) )&attributes( attributes )
+    .parallax-content( class= obj.innerClass )
+      block
+
+
+//- Breadcrumbs
+  @param {object} obj - parameters storage
+  @param {string} obj.category - required menu category
+  @param {string} obj.bgImage - section background image
+  @param {array}  obj.path - other navigation path
+mixin breadcrumbs( obj )
+  - var activeItemName= obj.path.pop();
+  - var category = getMenuCategory( obj.category );
+
+  section.section.bg-default.breadcrumbs-custom&attributes( attributes )
+    span.breadcrumbs-custom-back-title= obj.backTitle ? obj.backTitle : activeItemName
+    .container
+      .row.justify-content-end
+        .col-lg-11
+          ul.breadcrumbs-custom-path
+            li: a(href='index.html') Home
+            if ( typeof( category ) !== 'undefined' && ( category.title !== activeItemName ) )
+              li: a( href=category.link ? category.link : genLink( category.title ) )= category.title
+              -for( var i = 0; i < obj.path.length; i++)
+                li: a( href=obj.path[i].link ? obj.path[i].link : genLink( obj.path[i].title) )= obj.path[i].title
+            li.active=activeItemName
+
+          h1.breadcrumbs-custom-title= obj.title ? obj.title : activeItemName
+          .divider.divider-xl
+
+    block
+
+
+//- Logo
+mixin logo(obj)
+  a.brand( href='index.html' )&attributes( attributes )
+    +png( obj.default.normal )( srcset='images/'+ obj.default.retina +'.png 2x' ).brand-logo-dark
+    +png( obj.inverse.normal )( srcset='images/'+ obj.inverse.retina +'.png 2x' ).brand-logo-light
+
+
+//- Copyright
+mixin rights
+  p.rights&attributes( attributes )
+    span &copy;&nbsp;
+    span.copyright-year
+    span &nbsp;
+    span= logo.name
+    span .&nbsp;
+    =" "
+    a( href='privacy-policy.html' ) Privacy Policy
+    span .
+    span  Design&nbsp;by&nbsp;#[a(href="https://zemez.io/") Zemez]
