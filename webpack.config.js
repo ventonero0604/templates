@@ -8,7 +8,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const glob = require('glob');
 const PATHS = {
   src: path.join(__dirname, 'src'),
