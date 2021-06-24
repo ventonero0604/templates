@@ -1,0 +1,20 @@
+/* ---------------------------------- *\
+   #PAGE
+\* ---------------------------------- */
+@import './_variables.scss';
+
+body {
+  font-family: -apple-system-subset, Helvetica, Hiragino Kaku Gothic ProN, sans-serif;
+}
+
+a {
+  color: $primary;
+}
+
+a,
+button {
+  transition: 0.2;
+}
+
+.Page {
+}

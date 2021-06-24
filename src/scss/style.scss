@@ -1,8 +1,13 @@
-@import './sub.scss';
+/* foundation */
+@import './foundation/_reset.scss';
+@import './foundation/_variables.scss';
+@import './foundation/_common.scss';
+@import './foundation/_page.scss';
 
-.example {
-  display: flex;
-  color: black;
-  width: 100%;
-  background-color: red;
-}
+/* ui */
+@import './ui/footer.scss';
+
+/* tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

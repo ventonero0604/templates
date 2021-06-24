@@ -6,15 +6,27 @@ const ImageminMozjpeg = require('imagemin-mozjpeg');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const glob = require('glob');
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+};
 
 module.exports = {
   mode: 'production',
 
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
 
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/main.js',
+  },
+
+  performance: {
+    maxEntrypointSize: 270000,
+    maxAssetSize: 700000,
   },
 
   module: {
@@ -40,14 +52,13 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
               url: false,
             },
           },
-
           'postcss-loader',
         ],
       },
@@ -128,17 +139,25 @@ module.exports = {
       minify: false, //minifyしない
     }),
 
-    new HtmlWebpackPlugin({
-      template: './src/pug/sub.pug',
-      filename: 'sub.html',
-      inject: false,
-      minify: false,
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './src/pug/sub.pug',
+    //   filename: 'sub.html',
+    //   inject: false,
+    //   minify: false,
+    // }),
 
     new StyleLintPlugin({
       configFile: '.stylelintrc',
       fix: true, //自動修正可能なものは修正
     }),
+
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
+
+    // ライブリロード
+    new LiveReloadPlugin(),
   ],
-  target: ['web', 'es5'],
+  // リロード高速化
+  cache: true,
 };
