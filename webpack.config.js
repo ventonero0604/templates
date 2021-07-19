@@ -1,13 +1,14 @@
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
 const glob = require('glob');
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -15,7 +16,6 @@ const PATHS = {
 
 module.exports = {
   mode: 'production',
-
   entry: ['./src/index.js'],
 
   output: {
@@ -23,9 +23,8 @@ module.exports = {
     filename: 'js/main.js',
   },
 
-  performance: {
-    maxEntrypointSize: 270000,
-    maxAssetSize: 700000,
+  cache: {
+    type: 'filesystem',
   },
 
   module: {
@@ -98,6 +97,12 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
+
     new CleanWebpackPlugin({ verbose: true }),
 
     new MiniCssExtractPlugin({
@@ -111,52 +116,68 @@ module.exports = {
       ],
     }),
 
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      pngquant: {
-        quality: '70-80',
-      },
-      gifsicle: {
-        interlaced: false,
-        optimizationLevel: 10,
-        colors: 256,
-      },
-      svgo: {},
-      plugins: [
-        ImageminMozjpeg({
-          quality: 85,
-          progressive: true,
-        }),
-      ],
-    }),
+    // new ImageminPlugin({
+    //   test: /\.(jpe?g|png|gif|svg)$/i,
+    //   pngquant: {
+    //     quality: '70-80',
+    //   },
+    //   gifsicle: {
+    //     interlaced: false,
+    //     optimizationLevel: 10,
+    //     colors: 256,
+    //   },
+    //   svgo: {},
+    //   plugins: [
+    //     ImageminMozjpeg({
+    //       quality: 85,
+    //       progressive: true,
+    //     }),
+    //   ],
+    // }),
 
     // Pug
     new HtmlWebpackPlugin({
-      template: './src/pug/index.pug', //変換元のPugファイルの指定
-      filename: 'index.html', //出力するHTMLのファイル名
-      inject: false, //バンドルしたjsファイルを読み込むscriptタグを自動出力しない
-      minify: false, //minifyしない
+      template: './src/pug/index.pug',
+      filename: 'index.html',
+      inject: false,
+      minify: false,
     }),
 
-    // new HtmlWebpackPlugin({
-    //   template: './src/pug/sub.pug',
-    //   filename: 'sub.html',
-    //   inject: false,
-    //   minify: false,
-    // }),
+    new BeautifyHtmlWebpackPlugin({
+      indent_size: 2,
+      indent_char: ' ',
+      indent_with_tabs: false,
+      editorconfig: false,
+      eol: '\n',
+      end_with_newline: false,
+      indent_level: 0,
+      preserve_newlines: true,
+      max_preserve_newlines: 2,
+      space_in_paren: false,
+      space_in_empty_paren: false,
+      jslint_happy: false,
+      space_after_anon_function: false,
+      space_after_named_function: false,
+      brace_style: 'collapse',
+      unindent_chained_methods: false,
+      break_chained_methods: false,
+      keep_array_indentation: false,
+      unescape_strings: false,
+      wrap_line_length: 0,
+      e4x: false,
+      comma_first: false,
+      operator_position: 'before-newline',
+      indent_empty_lines: false,
+      templating: ['auto'],
+    }),
 
     new StyleLintPlugin({
       configFile: '.stylelintrc',
       fix: true, //自動修正可能なものは修正
     }),
 
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    }),
-
-    // ライブリロード
-    new LiveReloadPlugin(),
+    // new PurgecssPlugin({
+    //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    // }),
   ],
-  // リロード高速化
-  cache: true,
 };

@@ -5,7 +5,7 @@ include _elements
 block variables
 
 doctype html
-html( lang='en', class= htmlClass )
+html( lang='ja', class= htmlClass )
   head
     block title
       title= pageName
@@ -19,10 +19,10 @@ html( lang='en', class= htmlClass )
     //- link( rel='stylesheet', href='css/bootstrap.css' )
     //- link( rel='stylesheet', href='.css/fonts.css' )
     link( rel='stylesheet', href='./css/style.css' )
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
   body
     .page
       block page
 
   script( src='./js/main.js' )
-  script( src='http://localhost:35729/livereload.js' )
