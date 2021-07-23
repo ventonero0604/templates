@@ -1,3 +1,1 @@
-import $ from 'jquery';
-
-$('header').fadeOut('slow');
+// $('header').fadeOut('slow');

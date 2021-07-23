@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const metadata = require('./meta.json');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -83,6 +84,23 @@ module.exports = {
             loader: 'pug-loader',
             options: {
               pretty: true,
+            },
+          },
+        ],
+      },
+
+      {
+        test: /\.pug$/,
+        use: [
+          {
+            loader: 'pug-html-info-loader',
+            options: {
+              data: {
+                globalConf: metadata['global'],
+                localConf: metadata['local'],
+              }, // set of data to pass to the pug render.
+              basePath: path.resolve(__dirname, 'src'),
+              // base folder path for local variables.
             },
           },
         ],

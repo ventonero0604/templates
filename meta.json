@@ -1,0 +1,34 @@
+{
+  "global": {
+    "title": "global title",
+    "description": "global description",
+    "keywords": "global keywords",
+    "og_url": "global og_url",
+    "og_title": "global og_title",
+    "og_image": "global og_image",
+    "og_description": "global og_description",
+    "bodyClass": "global bodyClass"
+  },
+  "local": {
+    "path/to/page1.html": {
+      "title": "Page1 title",
+      "description": "Page1 description",
+      "keywords": "Page1 keywords",
+      "og_url": "Page1 og_url",
+      "og_title": "Page1 og_title",
+      "og_image": "Page1 og_image",
+      "og_description": "Page1 og_description",
+      "bodyClass": "Page1 bodyClass"
+    },
+    "path/to/page2.html": {
+      "title": "Page2 title",
+      "description": "Page2 description",
+      "keywords": "Page2 keywords",
+      "og_url": "Page2 og_url",
+      "og_title": "Page2 og_title",
+      "og_image": "Page2 og_image",
+      "og_description": "Page2 og_description",
+      "bodyClass": "Page2 bodyClass"
+    }
+  }
+}
