@@ -1,0 +1,67 @@
+html {
+  font-size: 62.5%; /* 1remを10pxにして計算しやすくする */
+  line-height: 1.6;
+}
+
+body {
+  color: $brown;
+  font-size: 1.6rem;
+}
+
+em {
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover img {
+    transition: 0.2s;
+  }
+}
+
+button {
+  > span {
+    pointer-events: none;
+  }
+}
+
+input[type='text'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+textarea,
+select[multiple],
+button {
+  border: none;
+}
+
+/* placeholder */
+/* Webkit */
+::-webkit-input-placeholder {
+  color: $gray-1;
+  opacity: 1;
+}
+
+/* Firefox 18 以前 */
+:-moz-placeholder {
+  color: $gray-1;
+}
+
+/* Firefox 19 以降 */
+::-moz-placeholder {
+  color: $gray-1;
+  opacity: 1;
+}
+
+/* IE 10 以降 */
+:-ms-input-placeholder {
+  color: $gray-1;
+}

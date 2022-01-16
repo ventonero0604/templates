@@ -1,0 +1,60 @@
+.Recipe {
+  &_items {
+    display: flex;
+    justify-content: space-between;
+    width: 968px;
+    margin: 30px auto;
+
+    .Card {
+      width: 280px;
+      padding: 0;
+    }
+    .Card_contents {
+      padding: 0;
+    }
+    .Button {
+      width: 100%;
+      position: relative;
+      margin-top: 40px;
+      text-align: center;
+    }
+  }
+
+  &_item {
+    display: block;
+    &:hover {
+      opacity: 0.8;
+    }
+    & + & {
+      margin-top: 40px;
+    }
+    p {
+      text-align: center;
+      position: relative;
+      margin-top: 1.8rem;
+      &:after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-60%);
+        right: 0;
+        display: block;
+        content: '';
+        background: url(../img/ico_arrow_brown.png) 0 0 no-repeat;
+        background-size: cover;
+        width: 6px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Recipe {
+    &_item {
+      width: 100%;
+    }
+    .Card {
+      width: 100%;
+    }
+  }
+}

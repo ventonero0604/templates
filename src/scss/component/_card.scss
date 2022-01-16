@@ -1,0 +1,147 @@
+.Card {
+  background-color: white;
+  padding: 0 14px 24px;
+  &_header {
+    font-size: 2rem;
+    height: 120px;
+    line-height: 120px;
+    padding-left: 6px;
+    &-mixer {
+      background: url(../img/img_mixer_small.png) right 50% no-repeat;
+      background-size: 78px 78px;
+      border-bottom: 2px solid $red;
+    }
+    &-blender {
+      background: url(../img/img_blender_small.png) right 50% no-repeat;
+      background-size: 91px 91px;
+      border-bottom: 2px solid $green;
+    }
+    &-processer {
+      background: url(../img/img_processer_small.png) right 50% no-repeat;
+      background-size: 91px 91px;
+      border-bottom: 2px solid $orange;
+    }
+  }
+  &_contents {
+    margin-top: 40px;
+    padding: 0 15px;
+    &-h294 {
+      height: 294px;
+    }
+    &-h300 {
+      height: 300px;
+    }
+    & + & {
+      margin-top: 50px;
+    }
+  }
+  &_text {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+  &_list {
+    margin-top: 14px;
+    li {
+      position: relative;
+      padding-left: 16px;
+
+      &:before {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        content: '';
+        display: block;
+        width: 7px;
+        height: 7px;
+      }
+    }
+    li + li {
+      margin-top: 16px;
+    }
+
+    &-red {
+      li {
+        &:before {
+          background-color: $red;
+        }
+      }
+    }
+    &-green {
+      li {
+        &:before {
+          background-color: $green;
+        }
+      }
+    }
+    &-orange {
+      li {
+        &:before {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Card {
+    padding: 10px 30px 20px;
+    &.red {
+      background-color: $bg-red;
+    }
+    &.green {
+      background-color: $bg-green;
+    }
+    &.orange {
+      background-color: $bg-orange;
+    }
+    &_header {
+      background: none;
+      height: auto;
+      text-align: center;
+      line-height: 1;
+      padding: 18px;
+      border-width: 1px;
+    }
+    &_contents {
+      margin-top: 24px;
+      height: auto;
+      text-align: center;
+
+      img {
+        width: calc(168 / 375 * 100vw);
+      }
+
+      & + & {
+        margin-top: 24px;
+      }
+    }
+    &_text {
+      margin-top: 10px;
+      font-size: calc(14 / 375 * 100vw);
+    }
+    &_list {
+      li {
+        padding-bottom: 12px;
+        &:before {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          top: unset;
+          content: '';
+          display: block;
+          width: 232px;
+          height: 1px;
+        }
+        &:last-of-type {
+          padding: 0;
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

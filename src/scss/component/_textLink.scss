@@ -1,0 +1,14 @@
+.TextLink {
+  color: $link;
+  border-bottom: 1px solid $link;
+  font-size: 1.6rem;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .TextLink {
+    font-size: calc(14 / 375 * 100vw);
+  }
+}

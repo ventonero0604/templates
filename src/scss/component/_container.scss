@@ -1,0 +1,13 @@
+.Container {
+  background-color: #f9f9f5;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .Container {
+    flex-direction: column;
+  }
+}

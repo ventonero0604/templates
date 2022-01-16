@@ -1,0 +1,22 @@
+/* foundation */
+@import './foundation/_reset.scss';
+@import './foundation/_variables.scss';
+@import './foundation/_common.scss';
+@import './foundation/_breakPoint.scss';
+@import './foundation/_page.scss';
+
+/* component */
+@import './component/_button.scss';
+@import './component/_title.scss';
+@import './component/_container.scss';
+@import './component/_lead.scss';
+@import './component/_textLink.scss';
+@import './component/_card.scss';
+
+/* ui */
+@import './ui/main.scss';
+@import './ui/navi.scss';
+@import './ui/products.scss';
+@import './ui/detail.scss';
+@import './ui/lineup.scss';
+@import './ui/recipe.scss';

@@ -1,0 +1,141 @@
+.Lineup {
+  .Container {
+    padding: 65px 0 85px;
+    flex-direction: column;
+  }
+  .Title-section {
+    margin-bottom: 24px;
+  }
+  &_items {
+    display: flex;
+    justify-content: center;
+    & + & {
+      margin-top: 110px;
+    }
+  }
+
+  &_item {
+    width: 238px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    & + & {
+      margin-left: 94px;
+    }
+
+    &_header {
+      font-size: 2.5rem;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 14px;
+      margin-bottom: 30px;
+      white-space: nowrap;
+      &-red {
+        border-left: 2px solid $red;
+      }
+      &-green {
+        border-left: 2px solid $green;
+      }
+      &-orange {
+        border-left: 2px solid $orange;
+      }
+    }
+
+    &_name {
+      text-align: center;
+      font-size: 1.8rem;
+      margin: 16px 0 20px;
+      span {
+        border-bottom: 1px solid $brown;
+      }
+    }
+
+    .Button {
+      width: 195px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Lineup {
+    .Container {
+      padding: 0;
+      background: none;
+    }
+    &_items {
+      width: 100%;
+      flex-direction: column;
+
+      & + & {
+        margin-top: 10px;
+      }
+
+      &.red > * {
+        background-color: $bg-red;
+      }
+    }
+    &_item {
+      width: 100%;
+      padding: 0 30px 18px;
+      & + & {
+        margin: 0;
+      }
+      &.green {
+        background-color: $bg-green;
+      }
+      &.orange {
+        background-color: $bg-orange;
+        margin-top: 10px;
+      }
+      &_header {
+        font-size: calc(18 / 375 * 100vw);
+        height: 50px;
+        line-height: 50px;
+        padding-left: 0;
+        margin-bottom: 22px;
+        text-align: center;
+        &-red {
+          border-left: none;
+          border-bottom: 1px solid $red;
+        }
+        &-green {
+          border-left: none;
+          border-bottom: 1px solid $green;
+        }
+        &-orange {
+          border-left: none;
+          border-bottom: 1px solid $orange;
+        }
+      }
+      &_contents {
+        display: flex;
+
+        div + div {
+          margin-left: 20px;
+        }
+        div img {
+          max-width: 118px;
+        }
+      }
+      &_name {
+        font-size: calc(14 / 375 * 100vw);
+        margin: 16px 0;
+        text-align: left;
+      }
+      .Button {
+        font-size: calc(14 / 375 * 100vw);
+        width: 131px;
+        margin: 0;
+        padding: 4px 0 4px 10px;
+        justify-content: unset;
+        &:before {
+          height: 8px;
+          width: 6px;
+          right: 8px;
+        }
+      }
+    }
+  }
+}

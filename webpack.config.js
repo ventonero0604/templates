@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TailwindCss = require('tailwindcss');
 const Autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -56,10 +55,25 @@ module.exports = (env, args) => {
                 loader: 'postcss-loader',
                 options: {
                   postcssOptions: {
-                    plugins: [TailwindCss, Autoprefixer],
+                    plugins: [Autoprefixer],
                   },
                 },
               },
+            ],
+          },
+
+          {
+            test: /\.scss$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  url: false,
+                },
+              },
+              'postcss-loader',
+              'sass-loader',
             ],
           },
         ],

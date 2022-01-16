@@ -1,0 +1,63 @@
+.Apply {
+  .main {
+    h2 {
+      padding-top: 20px;
+      margin-bottom: 50px;
+      img {
+        width: 100%;
+      }
+    }
+    .lead {
+      margin: 36px 0 38px;
+      line-height: 1.8;
+    }
+  }
+
+  .about {
+    margin-bottom: 40px;
+    .title {
+      font-size: 2.8rem;
+    }
+    b {
+      font-size: 1.8rem;
+    }
+    h4 {
+      font-weight: normal;
+    }
+    a {
+      text-decoration: underline;
+    }
+    .border {
+      border-bottom: 1px solid $gray-700;
+      padding-bottom: 30px;
+    }
+  }
+
+  .Title-largeLine {
+    margin: 84px 0;
+  }
+
+  .Contact {
+    margin-top: 118px;
+  }
+}
+
+@include breakPoint(md) {
+  .Apply {
+    .main {
+      margin-top: $header-sp-height;
+      &.Wrapper {
+        padding: 0;
+      }
+      .lead {
+        padding: 0 20px;
+      }
+      .ArrowLink {
+        margin-left: 20px;
+      }
+    }
+    .Title-largeLine {
+      margin: 40px 0 60px;
+    }
+  }
+}

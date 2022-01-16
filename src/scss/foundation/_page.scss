@@ -1,0 +1,110 @@
+/* ---------------------------------- *\
+   #PAGE
+\* ---------------------------------- */
+@import './_variables.scss';
+
+body {
+  font-family: -apple-system-subset, Helvetica, Hiragino Kaku Gothic ProN, sans-serif;
+  color: $brown;
+  font-weight: 300;
+  position: relative;
+}
+
+a {
+  color: $brown;
+}
+
+a,
+button {
+  transition: all 0.2s;
+}
+
+.page {
+  overflow: hidden;
+}
+
+.indent {
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+
+.pc {
+  display: block;
+}
+.sp {
+  display: none;
+}
+.pc_inline {
+  display: inline-block;
+}
+.sp_inline {
+  display: none;
+}
+.pc_flex {
+  display: flex;
+}
+.sp_flex {
+  display: none;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    display: block;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@include breakPoint(md) {
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+  }
+  .pc_inline {
+    display: none;
+  }
+  .sp_inline {
+    display: inline-block;
+  }
+  .pc_flex {
+    display: none;
+  }
+  .sp_flex {
+    display: flex;
+  }
+}
+
+.slideInText {
+  // transform: translate(-20%, 0);
+  // transition: 0.6s ease-in-out;
+  &_outer {
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s;
+  }
+  &_inner {
+    transform: translate(100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s;
+  }
+}
+.is-show.slideInText,
+.is-show.slideInText .slideInText_outer,
+.is-show.slideInText .slideInText_inner {
+  transform: translate(0, 0);
+}

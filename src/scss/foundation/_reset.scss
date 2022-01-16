@@ -1,0 +1,480 @@
+@charset "UTF-8";
+/**
+   * iOS 11+ で、ヒラギノフォントが指定サイズより1px小さく描画されてしまう問題の対策
+   *
+   * @see
+   * ios11以前と以降での、-apple-systemの表示 - Qiita
+   * https://qiita.com/a_t/items/18693be11bd87f98d212
+   */
+@font-face {
+  font-family: '-apple-system-subset';
+  src: local(-apple-system);
+  unicode-range: U+0000-05C7;
+}
+
+/* ---------------------------------- *\
+  Reset Box Model
+\* ---------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/* ---------------------------------- *\
+  Document
+\* ---------------------------------- */
+
+/**
+   * 1. ページの高さを、常にビューポート分確保する
+   * 2. タッチデバイスで自動でズームされるのを防ぐ
+   */
+
+html {
+  min-height: 100%; /* 1 */
+  line-height: 1.5;
+  text-size-adjust: 100%; /* 2 */
+}
+
+/* ---------------------------------- *\
+  Sections
+\* ---------------------------------- */
+
+body {
+  margin: 0;
+  font-family: system-ui, BlinkMacSystemFont, -apple-system-subset, 'Hiragino Kaku Gothic ProN',
+    sans-serif;
+}
+
+/**
+   * IE で、main 要素を正常に表示させる
+   */
+
+main {
+  display: block;
+}
+
+/* ---------------------------------- *\
+  Vertical Rhythm
+\* ---------------------------------- */
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* ---------------------------------- *\
+  Headings
+\* ---------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* ---------------------------------- *\
+  Lists
+\* ---------------------------------- */
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* ---------------------------------- *\
+  Grouping content
+\* ---------------------------------- */
+
+/**
+   * 1. Firefox で、box-sizing を正常にする
+   * 2. IE、Edge で、はみ出した部分も表示されるようにする
+   */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border: 0;
+  border-top: 1px solid;
+  margin: 0;
+  clear: both;
+}
+
+/**
+   * 1. すべてのブラウザで、フォントサイズが正常に継承されるようにする
+   *
+   * @see
+   * https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
+   *
+   * 2. すべてのブラウザで、'em'で指定したフォントサイズが反映されるようにする
+   */
+
+pre {
+  /* stylelint-disable-next-line font-family-no-duplicate-names */
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* ---------------------------------- *\
+  Text-level semantics
+\* ---------------------------------- */
+
+/**
+   * IE 10 で、クリック時のグレー背景を無効化
+   */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+   * 1. Chrome 57- で、下線を削除
+   * 2. Chrome、Edge、IE、Opera、Safari で、正常に装飾されるようにする
+   */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+   * Chrome、Edge、Safari で、フォントウェイトを正常にする
+   */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+   * 1. すべてのブラウザで、フォントサイズが正常に継承されるようにする
+   *
+   * @see
+   * https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
+   *
+   * 2. すべてのブラウザで、'em'で指定したフォントサイズが反映されるようにする
+   */
+
+code,
+kbd,
+samp {
+  /* stylelint-disable-next-line font-family-no-duplicate-names */
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+   * すべてのブラウザで、正常なフォントサイズで表示する
+   */
+
+small {
+  font-size: 80%;
+}
+
+/**
+   * すべてのブラウザで、sub/sup 要素に line-height が影響しないようにする
+   */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* ---------------------------------- *\
+  Embedded content
+\* ---------------------------------- */
+
+/**
+   * IE 10 で、リンク内の画像のボーダーを削除する
+   */
+
+img {
+  border-style: none;
+  vertical-align: bottom;
+}
+
+embed,
+object,
+iframe {
+  border: 0;
+  vertical-align: bottom;
+}
+
+/* ---------------------------------- *\
+  Forms
+\* ---------------------------------- */
+
+/**
+   * フォーム関連要素をリセットしてスタイルを整える
+   * 1. ラジオボタンとチェックボックスをリセットしつつ、iOS では iOS 独自のスタイルを維持する
+   */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  border: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border-radius: 0;
+  text-align: inherit;
+}
+
+[type='checkbox'] {
+  /* 1 */
+  appearance: checkbox;
+}
+
+[type='radio'] {
+  /* 1 */
+  appearance: radio;
+}
+
+/**
+   * IE、Edge で、はみ出した部分も表示されるようにする
+   */
+
+button,
+input {
+  overflow: visible;
+}
+
+/**
+   * Edge、Firefox、IE で、text-transform の継承を無効化
+   */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+   * iOS と Safari で、クリッカブルにならない状態を正常にする
+   */
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+  appearance: none;
+}
+
+button[disabled],
+[type='button'][disabled],
+[type='reset'][disabled],
+[type='submit'][disabled] {
+  cursor: default;
+}
+
+/**
+   * Firefox で、内側の border と padding を削除
+   */
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+   * 前のルールにおいて無効化したフォーカス時のスタイルを再度有効化する
+   */
+
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+   * 非表示にする
+   */
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+/**
+   * 1. Edge、IE で、テキストの囲みを正常にする
+   * 2. IE で、fieldset 要素の色の継承を正常にする
+   * 3. すべてのブラウザで、fieldset と同時に使った際の legend につく padding を削除
+   */
+
+legend {
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+   * Chrome、Firefox、Operaで、縦位置を正常にする
+   */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+   * IE 10+ でデフォルトの縦方向のスクロールバーを削除
+   */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+   * 1. IE 10 で padding を削除
+   */
+
+[type='checkbox'],
+[type='radio'] {
+  padding: 0; /* 1 */
+}
+
+/**
+   * Chromeで、<input type=“number”> 時の ▲ と ▼ の装飾を無効化
+   */
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+   * 1. Safari で、アウトラインのスタイルを正常化
+   */
+
+[type='search'] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+   * macOSの Chrome、Safari で、内側の padding を削除
+   */
+
+[type='search']::-webkit-search-decoration {
+  appearance: none;
+}
+
+/**
+   * 1. iOS、Safariで、クリッカブルなテキスト要素を無効化
+   * 2. Safari で、フォントのプロパティを 'inherit' に変更
+   */
+
+::-webkit-file-upload-button {
+  appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+   * ラベルをクリッカブルにする
+   */
+
+label[for] {
+  cursor: pointer;
+}
+
+/* ---------------------------------- *\
+  Interactive
+\* ---------------------------------- */
+
+/**
+   * Edge、IE+、Firefox で、正常に表示させる
+   */
+
+details {
+  display: block;
+}
+
+/**
+   * すべてのブラウザで、正常にに表示させる
+   */
+
+summary {
+  display: list-item;
+}
+
+/* ---------------------------------- *\
+  Table
+\* ---------------------------------- */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}

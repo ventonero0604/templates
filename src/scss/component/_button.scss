@@ -1,0 +1,47 @@
+.Button {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  font-size: 1.7rem;
+  padding: 9px 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+    content: '';
+    display: block;
+    height: 10px;
+    width: 8px;
+    background: url(../img/ico_btn_arrow.png) 0 0 no-repeat;
+    background-size: contain;
+  }
+
+  &-red {
+    background-color: $red;
+  }
+  &-green {
+    background-color: $green;
+  }
+  &-orange {
+    background-color: $orange;
+  }
+
+  &-medium {
+    max-width: 232px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Button {
+    border-radius: 3px;
+  }
+}

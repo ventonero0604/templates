@@ -1,0 +1,27 @@
+.Title {
+  letter-spacing: 8px;
+  text-align: center;
+
+  &-section {
+    font-size: 3.3rem;
+  }
+  &-contents {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Title {
+    &-section {
+      font-size: calc(20 / 375 * 100vw);
+      letter-spacing: 2px;
+    }
+    &-contents {
+      font-size: calc(26 / 375 * 100vw);
+    }
+    &-spLeft {
+      text-align: left;
+      margin-left: 16px;
+    }
+  }
+}
