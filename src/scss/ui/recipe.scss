@@ -50,11 +50,47 @@
 
 @media screen and (max-width: 767px) {
   .Recipe {
+    &_items {
+      flex-direction: column;
+      width: auto;
+      margin-top: 4.267vw;
+    }
     &_item {
       width: 100%;
+      & + & {
+        margin-top: 0;
+        margin-left: 4.8vw;
+      }
+      p {
+        text-align: left;
+        font-size: 3.467vw;
+        margin-top: 2.133vw;
+      }
     }
     .Card {
       width: 100%;
+      padding: 0 30px 30px;
+      &.red {
+        background-color: $bg-red;
+      }
+      &.green {
+        background-color: $bg-green;
+      }
+      &.orange {
+        background-color: $bg-orange;
+      }
+    }
+    .Card + .Card {
+      margin-top: 2.667vw;
+    }
+    .Card_contents {
+      div {
+        display: flex;
+      }
+      .Button {
+        margin-top: 4.267vw;
+        font-size: 3.733vw;
+      }
     }
   }
 }

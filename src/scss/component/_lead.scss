@@ -4,11 +4,12 @@
 
   p.large {
     font-size: 2.4rem;
-    line-height: 1.9;
+    line-height: 2;
+    letter-spacing: 2px;
   }
   p.medium {
     font-size: 1.8rem;
-    line-height: 1.8;
+    line-height: 2;
   }
   h3 + p.medium {
     margin-top: 24px;
@@ -17,19 +18,19 @@
 
 @media screen and (max-width: 767px) {
   .Lead {
-    padding: 30px 0;
+    padding: 48px 24px;
     p.large {
       font-size: calc(16 / 375 * 100vw);
-      line-height: 1.8;
+      letter-spacing: unset;
     }
     p.medium {
       font-size: calc(14 / 375 * 100vw);
       line-height: 1.7;
     }
     h3 + p.medium {
-      text-align: left;
+      text-align: justify;
       margin-top: 10px;
-      padding: 0 16px;
+      padding: 0 10px;
     }
   }
 }

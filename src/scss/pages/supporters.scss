@@ -71,7 +71,7 @@
     .person {
       p {
         text-align: center;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 2rem;
         height: 70px;
         background-color: $gray-800;
@@ -80,7 +80,7 @@
       }
     }
     .title {
-      font-weight: bold;
+      font-weight: 600;
       margin-top: 20px;
     }
     .text {
@@ -126,7 +126,7 @@
     &_container {
       &_title {
         font-size: 2rem;
-        font-weight: bold;
+        font-weight: 600;
       }
     }
     &_list {

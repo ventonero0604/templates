@@ -27,13 +27,13 @@
     }
 
     &_categoryName {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 2rem;
       font-family: pragmatica, sans-serif;
       color: $white !important;
     }
     &_title {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 3rem;
       margin-top: 16px;
       color: $white !important;
@@ -83,7 +83,7 @@
     .title {
       color: $primary;
       vertical-align: text-top;
-      font-weight: bold;
+      font-weight: 600;
       white-space: nowrap;
       small {
         font-size: 1.2rem;
@@ -96,7 +96,7 @@
       vertical-align: middle;
     }
     .bold {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
   &_feature {
@@ -117,7 +117,7 @@
     .name,
     .job,
     .event {
-      font-weight: bold;
+      font-weight: 600;
     }
     .event {
       font-size: 2rem;
@@ -147,7 +147,7 @@
     .name,
     .job,
     .event {
-      font-weight: bold;
+      font-weight: 600;
     }
     .event {
       font-size: 2rem;
@@ -181,7 +181,7 @@
     }
     &_sectionTitle {
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 600;
       &-margin {
         margin: 0;
         padding: 40px 0 0 0;

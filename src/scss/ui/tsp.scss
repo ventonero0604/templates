@@ -1,0 +1,8 @@
+.Tsp {
+  position: relative;
+  overflow: hidden;
+
+  .is-show & {
+    height: 100vh;
+  }
+}

@@ -14,20 +14,37 @@
   }
   .title {
     font-size: 2.7rem;
-    padding-bottom: 4px;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+
     &.red {
-      border-bottom: 2px solid $red;
+      background-color: $red;
     }
     &.green {
-      border-bottom: 2px solid $green;
+      background-color: $green;
     }
     &.orange {
-      border-bottom: 2px solid $orange;
+      background-color: $orange;
     }
   }
   .subTitle {
     font-size: 2.2rem;
     margin-top: 14px;
+    font-weight: 600;
+    &.red {
+      color: $red;
+    }
+    &.green {
+      color: $green;
+    }
+    &.orange {
+      color: $orange;
+    }
   }
   .text {
     font-size: 1.8rem;
@@ -37,12 +54,19 @@
   .Button {
     margin: 30px 0 0 auto;
   }
+  small {
+    font-size: 1.6rem;
+  }
+  .small {
+    font-size: 1rem;
+    vertical-align: text-top;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .Products {
-    padding: 0 16px;
-    margin-top: 40px;
+    padding: 0 4.267vw;
+    margin-top: 10.667vw;
     li {
       flex-direction: column;
       .title {
@@ -51,33 +75,45 @@
       .image {
         width: auto;
         height: auto;
-        margin: 6px 0 0;
+        margin: 1.6vw 0 0;
       }
       .subTitle {
         font-size: calc(18 / 375 * 100vw);
-        margin-top: 16px;
-        padding-bottom: 4px;
+        margin-top: 4.267vw;
+        padding-bottom: 1.067vw;
+        font-weight: normal;
         &.red {
+          color: $brown;
           border-bottom: 1px solid $red;
         }
         &.green {
+          color: $brown;
           border-bottom: 1px solid $green;
         }
         &.orange {
+          color: $brown;
           border-bottom: 1px solid $orange;
         }
       }
       .text {
         font-size: calc(14 / 375 * 100vw);
-        margin-top: 16px;
+        margin-top: 4.267vw;
         line-height: 1.8;
+        text-align: justify;
       }
     }
     li + li {
-      margin-top: 70px;
+      margin-top: 18.667vw;
     }
     .Button {
-      margin: 30px auto 0;
+      margin: 8vw auto 0;
+    }
+    .small {
+      font-size: calc(10 / 375 * 100vw);
+      vertical-align: top;
+    }
+    small {
+      font-size: calc(12 / 375 * 100vw);
     }
   }
 }

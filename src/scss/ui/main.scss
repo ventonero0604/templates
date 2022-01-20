@@ -8,27 +8,29 @@
     font-weight: normal;
     letter-spacing: 18px;
     margin-top: 28px;
-    font-weight: 300;
   }
   h2 {
     font-size: 2.7rem;
     font-weight: normal;
     letter-spacing: 8px;
-    font-weight: 300;
+    margin-top: 6px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .Main {
-    padding-bottom: 16px;
+    padding-top: 12vw;
+    padding-bottom: 6.4vw;
     h1 {
-      font-size: calc(18 / 375 * 100vw);
+      font-size: calc(14 / 375 * 100vw);
       letter-spacing: 8px;
-      margin-top: 16px;
+      margin-top: 6.4vw;
     }
     h2 {
-      font-size: calc(14 / 375 * 100vw);
+      font-size: calc(24 / 375 * 100vw);
       letter-spacing: 4px;
+      margin-top: 1.067vw;
+      line-height: 1.6;
     }
   }
 }

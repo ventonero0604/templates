@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.14.7",
     "autoprefixer": "^10.3.3",
     "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.2.7",
     "eslint": "^7.29.0",
@@ -80,6 +80,7 @@
     ]
   },
   "dependencies": {
+    "beautify-html-webpack-plugin": "^1.0.3",
     "jquery": "^3.6.0",
     "owl.carousel": "^2.3.4"
   }

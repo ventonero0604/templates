@@ -41,26 +41,26 @@
 
   &_anchor {
     text-align: center;
-    margin: 0 30px 100px;
+    margin: 0 calc(30 / 375 * 100vw) calc(100 / 375 * 100vw);
     dt,
     dd {
       border-bottom: 1px solid $brown;
     }
     dt {
-      font-weight: 300;
       font-size: calc(19 / 375 * 100vw);
-      padding-bottom: 10px;
+      padding-bottom: calc(10 / 375 * 100vw);
+      font-weight: normal;
     }
     a {
       font-size: calc(19 / 375 * 100vw);
-      height: 85px;
+      height: calc(85 / 375 * 100vw);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       img {
         width: 20px;
-        margin-top: 8px;
+        margin-top: calc(8 / 375 * 100vw);
       }
     }
   }

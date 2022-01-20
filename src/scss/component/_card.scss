@@ -4,22 +4,27 @@
   &_header {
     font-size: 2rem;
     height: 120px;
-    line-height: 120px;
     padding-left: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
     &-mixer {
       background: url(../img/img_mixer_small.png) right 50% no-repeat;
       background-size: 78px 78px;
       border-bottom: 2px solid $red;
+      color: $red;
     }
     &-blender {
       background: url(../img/img_blender_small.png) right 50% no-repeat;
       background-size: 91px 91px;
       border-bottom: 2px solid $green;
+      color: $green;
     }
     &-processer {
       background: url(../img/img_processer_small.png) right 50% no-repeat;
       background-size: 91px 91px;
       border-bottom: 2px solid $orange;
+      color: $orange;
     }
   }
   &_contents {
@@ -48,12 +53,12 @@
 
       &:before {
         position: absolute;
-        top: 8px;
+        top: 6px;
         left: 0;
         content: '';
         display: block;
-        width: 7px;
-        height: 7px;
+        width: 10px;
+        height: 10px;
       }
     }
     li + li {
@@ -82,11 +87,14 @@
       }
     }
   }
+  small {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .Card {
-    padding: 10px 30px 20px;
+    padding: calc(10 / 375 * 100vw) calc(30 / 375 * 100vw) calc(20 / 375 * 100vw);
     &.red {
       background-color: $bg-red;
     }
@@ -99,13 +107,14 @@
     &_header {
       background: none;
       height: auto;
-      text-align: center;
+      justify-content: center;
       line-height: 1;
-      padding: 18px;
+      padding: calc(18 / 375 * 100vw);
       border-width: 1px;
+      font-size: calc(20 / 375 * 100vw);
     }
     &_contents {
-      margin-top: 24px;
+      margin-top: calc(24 / 375 * 100vw);
       height: auto;
       text-align: center;
 
@@ -114,11 +123,11 @@
       }
 
       & + & {
-        margin-top: 24px;
+        margin-top: calc(24 / 375 * 100vw);
       }
     }
     &_text {
-      margin-top: 10px;
+      margin-top: calc(10 / 375 * 100vw);
       font-size: calc(14 / 375 * 100vw);
     }
     &_list {
@@ -142,6 +151,9 @@
           }
         }
       }
+    }
+    small {
+      font-size: calc(13 / 375 * 100vw);
     }
   }
 }

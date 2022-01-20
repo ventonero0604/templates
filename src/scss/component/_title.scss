@@ -4,6 +4,9 @@
 
   &-section {
     font-size: 3.3rem;
+    &.red {
+      color: $red;
+    }
   }
   &-contents {
     font-size: 4rem;
@@ -21,7 +24,7 @@
     }
     &-spLeft {
       text-align: left;
-      margin-left: 16px;
+      margin-left: 10px;
     }
   }
 }
