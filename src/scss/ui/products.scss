@@ -3,9 +3,11 @@
   margin: 50px 0 25px;
   li {
     display: flex;
+    padding-bottom: 24px;
   }
   li + li {
-    margin-top: 45px;
+    padding-top: 38px;
+    border-top: 1px solid white;
   }
   .image {
     width: 232px;
@@ -15,12 +17,10 @@
   .title {
     font-size: 2.7rem;
     color: white;
-    font-weight: 600;
+    font-weight: bold;
     border-radius: 5px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
+    padding: 12px 0 10px 16px;
+    line-height: 1;
 
     &.red {
       background-color: $red;
@@ -35,7 +35,7 @@
   .subTitle {
     font-size: 2.2rem;
     margin-top: 14px;
-    font-weight: 600;
+    font-weight: bold;
     &.red {
       color: $red;
     }
@@ -55,7 +55,7 @@
     margin: 30px 0 0 auto;
   }
   small {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
   .small {
     font-size: 1rem;
@@ -65,10 +65,11 @@
 
 @media screen and (max-width: 767px) {
   .Products {
-    padding: 0 4.267vw;
+    padding: 0 4.267vw calc(40 / 375 * 100vw);
     margin-top: 10.667vw;
     li {
       flex-direction: column;
+      padding-bottom: 0;
       .title {
         display: none;
       }
@@ -104,6 +105,8 @@
     }
     li + li {
       margin-top: 18.667vw;
+      padding: 0;
+      border-top: none;
     }
     .Button {
       margin: 8vw auto 0;
@@ -113,7 +116,7 @@
       vertical-align: top;
     }
     small {
-      font-size: calc(12 / 375 * 100vw);
+      font-size: calc(10 / 375 * 100vw);
     }
   }
 }

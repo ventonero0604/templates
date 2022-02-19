@@ -157,7 +157,10 @@
         justify-content: start;
         font-size: calc(34 / 750 * 100vw);
         padding: calc(10 / 750 * 100vw) 0;
-        font-weight: 600;
+        font-weight: bold;
+        span {
+          font-weight: bold;
+        }
         img {
           display: none;
         }

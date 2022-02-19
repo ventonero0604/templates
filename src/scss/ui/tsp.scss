@@ -1,8 +1,13 @@
 .Tsp {
   position: relative;
   overflow: hidden;
-
-  .is-show & {
-    height: 100vh;
+  color: $brown;
+  &_center {
+    text-align: center;
   }
+}
+
+main > .menu .l-wrap .social {
+  top: 70px;
+  z-index: 100;
 }

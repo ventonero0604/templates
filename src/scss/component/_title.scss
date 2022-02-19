@@ -4,9 +4,6 @@
 
   &-section {
     font-size: 3.3rem;
-    &.red {
-      color: $red;
-    }
   }
   &-contents {
     font-size: 4rem;
@@ -18,6 +15,9 @@
     &-section {
       font-size: calc(20 / 375 * 100vw);
       letter-spacing: 2px;
+      &.red {
+        color: $red;
+      }
     }
     &-contents {
       font-size: calc(26 / 375 * 100vw);
